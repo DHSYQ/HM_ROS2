@@ -65,6 +65,7 @@ CMAKE_BINARY_DIR = /home/syq/Desktop/YD/build/r01_test_package
 # The main recursive "all" target.
 all: CMakeFiles/r01_test_node.dir/all
 all: CMakeFiles/r02_servo_bridge_node.dir/all
+all: CMakeFiles/r03_servo_cmd_node.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -76,6 +77,7 @@ clean: CMakeFiles/uninstall.dir/clean
 clean: CMakeFiles/r01_test_package_uninstall.dir/clean
 clean: CMakeFiles/r01_test_node.dir/clean
 clean: CMakeFiles/r02_servo_bridge_node.dir/clean
+clean: CMakeFiles/r03_servo_cmd_node.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -181,6 +183,32 @@ r02_servo_bridge_node: CMakeFiles/r02_servo_bridge_node.dir/rule
 CMakeFiles/r02_servo_bridge_node.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/r02_servo_bridge_node.dir/build.make CMakeFiles/r02_servo_bridge_node.dir/clean
 .PHONY : CMakeFiles/r02_servo_bridge_node.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/r03_servo_cmd_node.dir
+
+# All Build rule for target.
+CMakeFiles/r03_servo_cmd_node.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r03_servo_cmd_node.dir/build.make CMakeFiles/r03_servo_cmd_node.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r03_servo_cmd_node.dir/build.make CMakeFiles/r03_servo_cmd_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/syq/Desktop/YD/build/r01_test_package/CMakeFiles --progress-num=5,6 "Built target r03_servo_cmd_node"
+.PHONY : CMakeFiles/r03_servo_cmd_node.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/r03_servo_cmd_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/syq/Desktop/YD/build/r01_test_package/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/r03_servo_cmd_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/syq/Desktop/YD/build/r01_test_package/CMakeFiles 0
+.PHONY : CMakeFiles/r03_servo_cmd_node.dir/rule
+
+# Convenience name for target.
+r03_servo_cmd_node: CMakeFiles/r03_servo_cmd_node.dir/rule
+.PHONY : r03_servo_cmd_node
+
+# clean rule for target.
+CMakeFiles/r03_servo_cmd_node.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r03_servo_cmd_node.dir/build.make CMakeFiles/r03_servo_cmd_node.dir/clean
+.PHONY : CMakeFiles/r03_servo_cmd_node.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

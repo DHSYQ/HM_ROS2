@@ -223,6 +223,19 @@ r02_servo_bridge_node/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/r02_servo_bridge_node.dir/build.make CMakeFiles/r02_servo_bridge_node.dir/build
 .PHONY : r02_servo_bridge_node/fast
 
+#=============================================================================
+# Target rules for targets named r03_servo_cmd_node
+
+# Build rule for target.
+r03_servo_cmd_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 r03_servo_cmd_node
+.PHONY : r03_servo_cmd_node
+
+# fast build rule for target.
+r03_servo_cmd_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r03_servo_cmd_node.dir/build.make CMakeFiles/r03_servo_cmd_node.dir/build
+.PHONY : r03_servo_cmd_node/fast
+
 src/r01_test_node.o: src/r01_test_node.cpp.o
 .PHONY : src/r01_test_node.o
 
@@ -271,6 +284,30 @@ src/r02_servo_bridge_node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/r02_servo_bridge_node.dir/build.make CMakeFiles/r02_servo_bridge_node.dir/src/r02_servo_bridge_node.cpp.s
 .PHONY : src/r02_servo_bridge_node.cpp.s
 
+src/r03_servo_cmd_node.o: src/r03_servo_cmd_node.cpp.o
+.PHONY : src/r03_servo_cmd_node.o
+
+# target to build an object file
+src/r03_servo_cmd_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r03_servo_cmd_node.dir/build.make CMakeFiles/r03_servo_cmd_node.dir/src/r03_servo_cmd_node.cpp.o
+.PHONY : src/r03_servo_cmd_node.cpp.o
+
+src/r03_servo_cmd_node.i: src/r03_servo_cmd_node.cpp.i
+.PHONY : src/r03_servo_cmd_node.i
+
+# target to preprocess a source file
+src/r03_servo_cmd_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r03_servo_cmd_node.dir/build.make CMakeFiles/r03_servo_cmd_node.dir/src/r03_servo_cmd_node.cpp.i
+.PHONY : src/r03_servo_cmd_node.cpp.i
+
+src/r03_servo_cmd_node.s: src/r03_servo_cmd_node.cpp.s
+.PHONY : src/r03_servo_cmd_node.s
+
+# target to generate assembly for a file
+src/r03_servo_cmd_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r03_servo_cmd_node.dir/build.make CMakeFiles/r03_servo_cmd_node.dir/src/r03_servo_cmd_node.cpp.s
+.PHONY : src/r03_servo_cmd_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -288,12 +325,16 @@ help:
 	@echo "... uninstall"
 	@echo "... r01_test_node"
 	@echo "... r02_servo_bridge_node"
+	@echo "... r03_servo_cmd_node"
 	@echo "... src/r01_test_node.o"
 	@echo "... src/r01_test_node.i"
 	@echo "... src/r01_test_node.s"
 	@echo "... src/r02_servo_bridge_node.o"
 	@echo "... src/r02_servo_bridge_node.i"
 	@echo "... src/r02_servo_bridge_node.s"
+	@echo "... src/r03_servo_cmd_node.o"
+	@echo "... src/r03_servo_cmd_node.i"
+	@echo "... src/r03_servo_cmd_node.s"
 .PHONY : help
 
 

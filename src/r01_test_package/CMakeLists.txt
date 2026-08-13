@@ -9,6 +9,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
 # r01_test_node (原有)
@@ -29,7 +30,17 @@ ament_target_dependencies(r02_servo_bridge_node
   nlohmann_json)
 target_compile_features(r02_servo_bridge_node PUBLIC cxx_std_17)
 
-install(TARGETS r01_test_node r02_servo_bridge_node
+# r03_servo_cmd_node (舵机命令节点)
+add_executable(r03_servo_cmd_node src/r03_servo_cmd_node.cpp)
+target_include_directories(r03_servo_cmd_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
+ament_target_dependencies(r03_servo_cmd_node
+  rclcpp
+  std_msgs)
+target_compile_features(r03_servo_cmd_node PUBLIC cxx_std_17)
+
+install(TARGETS r01_test_node r02_servo_bridge_node r03_servo_cmd_node
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)

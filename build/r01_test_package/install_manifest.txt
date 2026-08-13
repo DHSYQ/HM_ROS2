@@ -1,5 +1,6 @@
 /home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r01_test_node
 /home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r02_servo_bridge_node
+/home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r03_servo_cmd_node
 /home/syq/Desktop/YD/install/r01_test_package/share/ament_index/resource_index/package_run_dependencies/r01_test_package
 /home/syq/Desktop/YD/install/r01_test_package/share/ament_index/resource_index/parent_prefix_path/r01_test_package
 /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/environment/ament_prefix_path.sh
