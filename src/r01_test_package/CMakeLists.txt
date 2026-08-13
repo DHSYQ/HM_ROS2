@@ -43,6 +43,18 @@ target_compile_features(r03_servo_cmd_node PUBLIC cxx_std_17)
 install(TARGETS r01_test_node r02_servo_bridge_node r03_servo_cmd_node
   DESTINATION lib/${PROJECT_NAME})
 
+install(DIRECTORY launch/
+  DESTINATION share/${PROJECT_NAME}/launch)
+
+install(DIRECTORY urdf/
+  DESTINATION share/${PROJECT_NAME}/urdf)
+
+install(DIRECTORY meshes/
+  DESTINATION share/${PROJECT_NAME}/meshes)
+
+install(DIRECTORY config/
+  DESTINATION share/${PROJECT_NAME}/config)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   set(ament_cmake_copyright_FOUND TRUE)

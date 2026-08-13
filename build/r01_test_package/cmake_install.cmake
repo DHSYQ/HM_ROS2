@@ -111,6 +111,22 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/r01_test_package/launch" TYPE DIRECTORY FILES "/home/syq/Desktop/YD/src/r01_test_package/launch/")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/r01_test_package/urdf" TYPE DIRECTORY FILES "/home/syq/Desktop/YD/src/r01_test_package/urdf/")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/r01_test_package/meshes" TYPE DIRECTORY FILES "/home/syq/Desktop/YD/src/r01_test_package/meshes/")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/r01_test_package/config" TYPE DIRECTORY FILES "/home/syq/Desktop/YD/src/r01_test_package/config/")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/syq/Desktop/YD/build/r01_test_package/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/r01_test_package")
 endif()
 
