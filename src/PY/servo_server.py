@@ -24,6 +24,14 @@ PORT = 9555  # 舵机服务端口
 
 _ser_lock = threading.Lock()  # 串口互斥锁，防止多线程同时读写
 
+# ── 中值校准 ──
+# 每个舵机的中值 (raw 0-4095)，人工调整后填入
+# 调整方法：将舵机转到期望的 0° 位置，读 raw 值填入
+ZERO_OFFSETS = {
+    1: 2048, 2: 2048, 3: 2048, 4: 2048, 5: 2048, 6: 2048,
+    11: 2048, 12: 2048, 13: 2048, 14: 2048, 15: 2048, 16: 2048,
+}
+
 
 def _checksum(packet):
     return (~sum(packet) & 0xFF)
@@ -72,25 +80,24 @@ def _write_register(ser, motor_id, address, data):
     return False
 
 
-def angle_to_raw(angle):
-    raw = int(round(angle / 360.0 * 4096 + 2048))
-    raw = max(-32767, min(32767, raw))
-    if raw < 0:
-        raw += 65536
-    return raw
+def angle_to_raw(motor_id, angle):
+    """角度（度）→ 舵机原始值 (0-4095)，使用该电机的中值"""
+    center = ZERO_OFFSETS.get(motor_id, 2048)
+    raw = int(round(angle / 360.0 * 4096 + center))
+    return max(0, min(4095, raw))
 
 
-def raw_to_angle(raw):
-    if raw > 32767:
-        raw -= 65536
-    return (raw - 2048) * 360.0 / 4096.0
+def raw_to_angle(motor_id, raw):
+    """舵机原始值 (0-4095) → 角度（度），使用该电机的中值"""
+    center = ZERO_OFFSETS.get(motor_id, 2048)
+    return (raw - center) * 360.0 / 4096.0
 
 
 def read_angle(ser, motor_id):
     data = _read_register(ser, motor_id, ADDR_PRESENT_POSITION, 2)
     if data is None or len(data) < 2:
         return None
-    return raw_to_angle(data[0] | (data[1] << 8))
+    return raw_to_angle(motor_id, data[0] | (data[1] << 8))
 
 
 def read_all(ser, ids):
@@ -131,7 +138,7 @@ def handle_client(conn, ser):
         elif cmd == 'write_angle':
             mid = req['id']
             angle = req['angle']
-            raw = angle_to_raw(angle)
+            raw = angle_to_raw(mid, angle)
             with _ser_lock:
                 _write_register(ser, mid, ADDR_TORQUE_ENABLE, b'\x01')
                 _write_register(ser, mid, ADDR_GOAL_POSITION,
@@ -154,7 +161,7 @@ def handle_client(conn, ser):
                         continue
                     if abs(t_a - s_a) < dead_zone:
                         continue
-                    raw = angle_to_raw(t_a)
+                    raw = angle_to_raw(s_id, t_a)
                     _write_register(ser, s_id, ADDR_GOAL_POSITION,
                                     bytes([raw & 0xFF, (raw >> 8) & 0xFF]))
                     written.append(s_id)
