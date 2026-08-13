@@ -1,7 +1,0 @@
-[01m[K/home/syq/Desktop/YD/src/r01_test_package/src/r02_servo_bridge_node.cpp:22:10:[m[K [01;31m[Kfatal error: [m[Knlohmann/json.hpp: No such file or directory
-   22 | #include [01;31m[K"nlohmann/json.hpp"[m[K
-      |          [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
-compilation terminated.
-gmake[2]: *** [CMakeFiles/r02_servo_bridge_node.dir/build.make:76: CMakeFiles/r02_servo_bridge_node.dir/src/r02_servo_bridge_node.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/r02_servo_bridge_node.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2

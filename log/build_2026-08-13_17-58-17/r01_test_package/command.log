@@ -1,6 +1,0 @@
-Invoking command in '/home/syq/Desktop/YD/build/r01_test_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/syq/Desktop/YD/src/r01_test_package -DCMAKE_INSTALL_PREFIX=/home/syq/Desktop/YD/install/r01_test_package
-Invoked command in '/home/syq/Desktop/YD/build/r01_test_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake /home/syq/Desktop/YD/src/r01_test_package -DCMAKE_INSTALL_PREFIX=/home/syq/Desktop/YD/install/r01_test_package
-Invoking command in '/home/syq/Desktop/YD/build/r01_test_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/syq/Desktop/YD/build/r01_test_package -- -j8 -l8
-Invoked command in '/home/syq/Desktop/YD/build/r01_test_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/syq/Desktop/YD/build/r01_test_package -- -j8 -l8
-Invoking command in '/home/syq/Desktop/YD/build/r01_test_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/syq/Desktop/YD/build/r01_test_package
-Invoked command in '/home/syq/Desktop/YD/build/r01_test_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/syq/Desktop/YD/build/r01_test_package
