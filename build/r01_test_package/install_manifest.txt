@@ -1,0 +1,17 @@
+/home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r01_test_node
+/home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r02_servo_bridge_node
+/home/syq/Desktop/YD/install/r01_test_package/share/ament_index/resource_index/package_run_dependencies/r01_test_package
+/home/syq/Desktop/YD/install/r01_test_package/share/ament_index/resource_index/parent_prefix_path/r01_test_package
+/home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/environment/ament_prefix_path.sh
+/home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/environment/ament_prefix_path.dsv
+/home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/environment/path.sh
+/home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/environment/path.dsv
+/home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/local_setup.bash
+/home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/local_setup.sh
+/home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/local_setup.zsh
+/home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/local_setup.dsv
+/home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/package.dsv
+/home/syq/Desktop/YD/install/r01_test_package/share/ament_index/resource_index/packages/r01_test_package
+/home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/cmake/r01_test_packageConfig.cmake
+/home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/cmake/r01_test_packageConfig-version.cmake
+/home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/package.xml

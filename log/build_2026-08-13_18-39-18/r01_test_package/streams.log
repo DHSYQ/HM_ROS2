@@ -1,0 +1,27 @@
+[0.023s] Invoking command in '/home/syq/Desktop/YD/build/r01_test_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/syq/Desktop/YD/build/r01_test_package -- -j8 -l8
+[0.130s] [ 50%] Built target r01_test_node
+[0.142s] [ 75%] [32mBuilding CXX object CMakeFiles/r02_servo_bridge_node.dir/src/r02_servo_bridge_node.cpp.o[0m
+[14.555s] [100%] [32m[1mLinking CXX executable r02_servo_bridge_node[0m
+[15.114s] [100%] Built target r02_servo_bridge_node
+[15.136s] Invoked command in '/home/syq/Desktop/YD/build/r01_test_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/syq/Desktop/YD/build/r01_test_package -- -j8 -l8
+[15.153s] Invoking command in '/home/syq/Desktop/YD/build/r01_test_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/syq/Desktop/YD/build/r01_test_package
+[15.167s] -- Install configuration: ""
+[15.168s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r01_test_node
+[15.168s] -- Installing: /home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r02_servo_bridge_node
+[15.171s] -- Set non-toolchain portion of runtime path of "/home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r02_servo_bridge_node" to ""
+[15.171s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/share/ament_index/resource_index/package_run_dependencies/r01_test_package
+[15.171s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/share/ament_index/resource_index/parent_prefix_path/r01_test_package
+[15.172s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/environment/ament_prefix_path.sh
+[15.172s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/environment/ament_prefix_path.dsv
+[15.172s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/environment/path.sh
+[15.173s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/environment/path.dsv
+[15.173s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/local_setup.bash
+[15.174s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/local_setup.sh
+[15.174s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/local_setup.zsh
+[15.174s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/local_setup.dsv
+[15.174s] -- Installing: /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/package.dsv
+[15.174s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/share/ament_index/resource_index/packages/r01_test_package
+[15.175s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/cmake/r01_test_packageConfig.cmake
+[15.175s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/cmake/r01_test_packageConfig-version.cmake
+[15.177s] -- Up-to-date: /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/package.xml
+[15.179s] Invoked command in '/home/syq/Desktop/YD/build/r01_test_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/syq/Desktop/YD/build/r01_test_package

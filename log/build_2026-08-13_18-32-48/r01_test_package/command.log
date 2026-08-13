@@ -1,0 +1,2 @@
+Invoking command in '/home/syq/Desktop/YD/build/r01_test_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/syq/Desktop/YD/build/r01_test_package -- -j8 -l8
+Invoked command in '/home/syq/Desktop/YD/build/r01_test_package' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/syq/Desktop/YD/build/r01_test_package -- -j8 -l8
