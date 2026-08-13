@@ -3,7 +3,7 @@
 <package format="3">
   <name>r01_test_package</name>
   <version>0.0.0</version>
-  <description>舵机 TCP 桥接与 ROS2 测试节点</description>
+  <description>舵机 TCP 桥接、ROS2 测试节点与 MoveIt2 运动规划配置</description>
   <maintainer email="dhshiyongqi@163.com">syq</maintainer>
   <license>TODO: License declaration</license>
 
@@ -16,7 +16,17 @@
 
   <exec_depend>ros2launch</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
   <exec_depend>rviz2</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+
+  <exec_depend>moveit_ros_move_group</exec_depend>
+  <exec_depend>moveit_kinematics</exec_depend>
+  <exec_depend>moveit_planners</exec_depend>
+  <exec_depend>moveit_simple_controller_manager</exec_depend>
+  <exec_depend>moveit_ros_visualization</exec_depend>
+  <exec_depend>moveit_configs_utils</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

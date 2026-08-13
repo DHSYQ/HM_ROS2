@@ -44,8 +44,7 @@ install(TARGETS r01_test_node r02_servo_bridge_node r03_servo_cmd_node
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY launch/
-  DESTINATION share/${PROJECT_NAME}/launch
-  PATTERN "setup_assistant.launch" EXCLUDE)
+  DESTINATION share/${PROJECT_NAME}/launch)
 
 install(DIRECTORY urdf/
   DESTINATION share/${PROJECT_NAME}/urdf)
@@ -55,8 +54,6 @@ install(DIRECTORY meshes/
 
 install(DIRECTORY config/
   DESTINATION share/${PROJECT_NAME}/config)
-
-install(FILES .setup_assistant DESTINATION share/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

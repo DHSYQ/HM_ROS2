@@ -5,7 +5,7 @@ set(r01_test_package_BUILD_DEPENDS "rclcpp" "sensor_msgs" "std_msgs" "nlohmann_j
 set(r01_test_package_BUILDTOOL_DEPENDS "ament_cmake")
 set(r01_test_package_BUILD_EXPORT_DEPENDS "rclcpp" "sensor_msgs" "std_msgs" "nlohmann_json")
 set(r01_test_package_BUILDTOOL_EXPORT_DEPENDS )
-set(r01_test_package_EXEC_DEPENDS "ros2launch" "robot_state_publisher" "rviz2" "rclcpp" "sensor_msgs" "std_msgs" "nlohmann_json")
+set(r01_test_package_EXEC_DEPENDS "ros2launch" "robot_state_publisher" "joint_state_publisher" "joint_state_publisher_gui" "rviz2" "tf2_ros" "moveit_ros_move_group" "moveit_kinematics" "moveit_planners" "moveit_simple_controller_manager" "moveit_ros_visualization" "moveit_configs_utils" "rclcpp" "sensor_msgs" "std_msgs" "nlohmann_json")
 set(r01_test_package_TEST_DEPENDS "ament_lint_auto" "ament_lint_common")
 set(r01_test_package_GROUP_DEPENDS )
 set(r01_test_package_MEMBER_OF_GROUPS )

@@ -111,7 +111,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/r01_test_package/launch" TYPE DIRECTORY FILES "/home/syq/Desktop/YD/src/r01_test_package/launch/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/r01_test_package/launch" TYPE DIRECTORY FILES "/home/syq/Desktop/YD/src/r01_test_package/launch/" REGEX "/setup\\_assistant\\.launch$" EXCLUDE)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -124,6 +124,10 @@ endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/r01_test_package/config" TYPE DIRECTORY FILES "/home/syq/Desktop/YD/src/r01_test_package/config/")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/r01_test_package" TYPE FILE FILES "/home/syq/Desktop/YD/src/r01_test_package/.setup_assistant")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
