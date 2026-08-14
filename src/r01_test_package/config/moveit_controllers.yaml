@@ -8,6 +8,9 @@ moveit_simple_controller_manager:
 
   hm_robot_arm_controller:
     type: FollowJointTrajectory
+    action_ns: follow_joint_trajectory
+    default: true
+    execution_duration_monitoring: false
     joints:
       - joint_1
       - joint_2

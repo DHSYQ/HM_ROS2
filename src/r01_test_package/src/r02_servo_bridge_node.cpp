@@ -1,13 +1,9 @@
 /** WSL 端 ROS2 桥接节点 — 连接 Windows TCP 服务端，接收舵机角度并发布 /joint_states
  *
  * 用法:
- *   # 先获取 Windows IP（WSL2 中运行）:
- *   cat /etc/resolv.conf | grep nameserver
+ *   ros2 run r01_test_package r02_servo_bridge_node --ros-args -p host:=<Windows_IP>
  *
- *   # 然后运行节点:
- *   ros2 run r01_test_package servo_bridge_node --ros-args -p host:=<Windows_IP>
- *
- * 默认连接 127.0.0.1:5005（如果是 WSL1 直接用 localhost）
+ * 默认连接 172.28.208.1:5005
  */
 #include <chrono>
 #include <memory>
@@ -26,48 +22,43 @@ using namespace std::chrono_literals;
 class ServoBridgeNode : public rclcpp::Node {
 public:
   ServoBridgeNode() : Node("servo_bridge_node") {
-    // 声明参数
     this->declare_parameter("host", "172.28.208.1");
     this->declare_parameter("port", 5005);
     this->declare_parameter("rate", 50.0);
 
-    // 发布者
     joint_pub_ = this->create_publisher<sensor_msgs::msg::JointState>("/joint_states", 10);
 
-    // 连接 TCP
-    std::string host = this->get_parameter("host").as_string();
-    int port = this->get_parameter("port").as_int();
-    RCLCPP_INFO(this->get_logger(), "正在连接 %s:%d ...", host.c_str(), port);
-
-    if (!connect_to_server(host, port)) {
-      RCLCPP_ERROR(this->get_logger(), "无法连接到 Windows 服务端，请确认 servo_tcp_server.py 已在 Windows 上运行");
-      rclcpp::shutdown();
-      return;
+    // 尝试连接，失败不崩溃，发布默认关节状态
+    if (!connect_to_server()) {
+      RCLCPP_WARN(this->get_logger(),
+        "无法连接 Windows 服务端，将发布默认关节状态（全零）。"
+        "请先启动 Windows 端: python servo_server.py && python servo_bridge.py");
     }
 
-    RCLCPP_INFO(this->get_logger(), "已连接到 Windows 服务端");
-
-    // 定时器，按指定频率接收数据
+    // 定时器
     double rate = this->get_parameter("rate").as_double();
     auto period = std::chrono::duration<double>(1.0 / rate);
-    timer_ = this->create_wall_timer(period, std::bind(&ServoBridgeNode::receive_and_publish, this));
+    timer_ = this->create_wall_timer(period,
+      std::bind(&ServoBridgeNode::receive_and_publish, this));
+
+    RCLCPP_INFO(this->get_logger(), "舵机桥接节点已启动");
   }
 
   ~ServoBridgeNode() override {
-    if (sock_ >= 0) {
-      close(sock_);
-    }
+    if (sock_ >= 0) close(sock_);
   }
 
 private:
-  bool connect_to_server(const std::string & host, int port) {
+  bool connect_to_server() {
+    std::string host = this->get_parameter("host").as_string();
+    int port = this->get_parameter("port").as_int();
+
     sock_ = socket(AF_INET, SOCK_STREAM, 0);
     if (sock_ < 0) {
       RCLCPP_ERROR(this->get_logger(), "创建 socket 失败");
       return false;
     }
 
-    // 设置超时
     struct timeval tv;
     tv.tv_sec = 2;
     tv.tv_usec = 0;
@@ -79,35 +70,52 @@ private:
     addr.sin_port = htons(port);
 
     if (inet_pton(AF_INET, host.c_str(), &addr.sin_addr) <= 0) {
-      RCLCPP_ERROR(this->get_logger(), "无效的 IP 地址: %s", host.c_str());
-      close(sock_);
-      sock_ = -1;
+      RCLCPP_ERROR(this->get_logger(), "无效的 IP: %s", host.c_str());
+      close(sock_); sock_ = -1;
       return false;
     }
 
     if (connect(sock_, (struct sockaddr *)&addr, sizeof(addr)) < 0) {
       RCLCPP_ERROR(this->get_logger(), "连接失败: %s", strerror(errno));
-      close(sock_);
-      sock_ = -1;
+      close(sock_); sock_ = -1;
       return false;
     }
 
+    RCLCPP_INFO(this->get_logger(), "已连接到 Windows 服务端 %s:%d", host.c_str(), port);
+    connected_ = true;
     return true;
   }
 
+  void publish_default_state() {
+    auto msg = sensor_msgs::msg::JointState();
+    msg.header.stamp = this->now();
+    for (int i = 1; i <= 6; i++) {
+      msg.name.push_back("joint_" + std::to_string(i));
+      msg.position.push_back(0.0);
+    }
+    joint_pub_->publish(msg);
+  }
+
   void receive_and_publish() {
-    // 读取 4 字节长度前缀
+    if (!connected_) {
+      // 未连接时发布默认状态，保证 move_group 能正常工作
+      publish_default_state();
+      // 尝试重连
+      reconnect();
+      return;
+    }
+
     uint32_t msg_len = 0;
     int n = recv(sock_, &msg_len, 4, MSG_WAITALL);
     if (n <= 0) {
       RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 5000,
                            "接收数据失败，尝试重连...");
-      reconnect();
+      connected_ = false;
+      close(sock_); sock_ = -1;
       return;
     }
     msg_len = ntohl(msg_len);
 
-    // 读取消息体
     std::string buffer(msg_len, '\0');
     n = recv(sock_, &buffer[0], msg_len, MSG_WAITALL);
     if (n <= 0) {
@@ -116,7 +124,6 @@ private:
       return;
     }
 
-    // 解析 JSON
     try {
       auto j = nlohmann::json::parse(buffer);
       auto angles = j["angles"];
@@ -128,7 +135,6 @@ private:
         std::string key = std::to_string(id);
         if (angles.contains(key) && !angles[key].is_null()) {
           msg.name.push_back("joint_" + key);
-          // 舵机角度是度，转为弧度
           msg.position.push_back(angles[key].get<double>() * M_PI / 180.0);
         }
       }
@@ -143,10 +149,15 @@ private:
   }
 
   void reconnect() {
-    close(sock_);
     std::string host = this->get_parameter("host").as_string();
     int port = this->get_parameter("port").as_int();
-    if (connect_to_server(host, port)) {
+    // 每 2 秒尝试一次重连
+    auto now = this->now().seconds();
+    if (now - last_reconnect_attempt_ < 2.0) return;
+    last_reconnect_attempt_ = now;
+
+    RCLCPP_INFO(this->get_logger(), "尝试重连 %s:%d ...", host.c_str(), port);
+    if (connect_to_server()) {
       RCLCPP_INFO(this->get_logger(), "重连成功");
     }
   }
@@ -154,6 +165,8 @@ private:
   rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_pub_;
   rclcpp::TimerBase::SharedPtr timer_;
   int sock_ = -1;
+  bool connected_ = false;
+  double last_reconnect_attempt_ = 0.0;
 };
 
 int main(int argc, char ** argv) {

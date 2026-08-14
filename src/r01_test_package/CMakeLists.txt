@@ -11,6 +11,8 @@ find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(nlohmann_json REQUIRED)
+find_package(control_msgs REQUIRED)
+find_package(rclcpp_action REQUIRED)
 
 # r01_test_node (原有)
 add_executable(r01_test_node src/r01_test_node.cpp)
@@ -40,7 +42,20 @@ ament_target_dependencies(r03_servo_cmd_node
   std_msgs)
 target_compile_features(r03_servo_cmd_node PUBLIC cxx_std_17)
 
-install(TARGETS r01_test_node r02_servo_bridge_node r03_servo_cmd_node
+# r04_trajectory_bridge (MoveIt2 轨迹桥接节点)
+add_executable(r04_trajectory_bridge src/r04_trajectory_bridge.cpp)
+target_include_directories(r04_trajectory_bridge PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
+ament_target_dependencies(r04_trajectory_bridge
+  rclcpp
+  rclcpp_action
+  std_msgs
+  sensor_msgs
+  control_msgs)
+target_compile_features(r04_trajectory_bridge PUBLIC cxx_std_17)
+
+install(TARGETS r01_test_node r02_servo_bridge_node r03_servo_cmd_node r04_trajectory_bridge
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY launch/

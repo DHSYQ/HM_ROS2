@@ -1,6 +1,7 @@
 /home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r01_test_node
 /home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r02_servo_bridge_node
 /home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r03_servo_cmd_node
+/home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r04_trajectory_bridge
 /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/launch/warehouse_db.launch.py
 /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/launch/setup_assistant.launch.py
 /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/launch/moveit_rviz.launch.py
@@ -8,7 +9,6 @@
 /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/launch/move_group.launch.py
 /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/launch/static_virtual_joint_tfs.launch.py
 /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/launch/rsp.launch.py
-/home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/launch/spawn_controllers.launch.py
 /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/launch/rviz_display.launch.py
 /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/urdf/hm_robot.urdf
 /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/meshes/BBB.stl

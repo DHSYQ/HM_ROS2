@@ -236,6 +236,19 @@ r03_servo_cmd_node/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/r03_servo_cmd_node.dir/build.make CMakeFiles/r03_servo_cmd_node.dir/build
 .PHONY : r03_servo_cmd_node/fast
 
+#=============================================================================
+# Target rules for targets named r04_trajectory_bridge
+
+# Build rule for target.
+r04_trajectory_bridge: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 r04_trajectory_bridge
+.PHONY : r04_trajectory_bridge
+
+# fast build rule for target.
+r04_trajectory_bridge/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r04_trajectory_bridge.dir/build.make CMakeFiles/r04_trajectory_bridge.dir/build
+.PHONY : r04_trajectory_bridge/fast
+
 src/r01_test_node.o: src/r01_test_node.cpp.o
 .PHONY : src/r01_test_node.o
 
@@ -308,6 +321,30 @@ src/r03_servo_cmd_node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/r03_servo_cmd_node.dir/build.make CMakeFiles/r03_servo_cmd_node.dir/src/r03_servo_cmd_node.cpp.s
 .PHONY : src/r03_servo_cmd_node.cpp.s
 
+src/r04_trajectory_bridge.o: src/r04_trajectory_bridge.cpp.o
+.PHONY : src/r04_trajectory_bridge.o
+
+# target to build an object file
+src/r04_trajectory_bridge.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r04_trajectory_bridge.dir/build.make CMakeFiles/r04_trajectory_bridge.dir/src/r04_trajectory_bridge.cpp.o
+.PHONY : src/r04_trajectory_bridge.cpp.o
+
+src/r04_trajectory_bridge.i: src/r04_trajectory_bridge.cpp.i
+.PHONY : src/r04_trajectory_bridge.i
+
+# target to preprocess a source file
+src/r04_trajectory_bridge.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r04_trajectory_bridge.dir/build.make CMakeFiles/r04_trajectory_bridge.dir/src/r04_trajectory_bridge.cpp.i
+.PHONY : src/r04_trajectory_bridge.cpp.i
+
+src/r04_trajectory_bridge.s: src/r04_trajectory_bridge.cpp.s
+.PHONY : src/r04_trajectory_bridge.s
+
+# target to generate assembly for a file
+src/r04_trajectory_bridge.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r04_trajectory_bridge.dir/build.make CMakeFiles/r04_trajectory_bridge.dir/src/r04_trajectory_bridge.cpp.s
+.PHONY : src/r04_trajectory_bridge.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -326,6 +363,7 @@ help:
 	@echo "... r01_test_node"
 	@echo "... r02_servo_bridge_node"
 	@echo "... r03_servo_cmd_node"
+	@echo "... r04_trajectory_bridge"
 	@echo "... src/r01_test_node.o"
 	@echo "... src/r01_test_node.i"
 	@echo "... src/r01_test_node.s"
@@ -335,6 +373,9 @@ help:
 	@echo "... src/r03_servo_cmd_node.o"
 	@echo "... src/r03_servo_cmd_node.i"
 	@echo "... src/r03_servo_cmd_node.s"
+	@echo "... src/r04_trajectory_bridge.o"
+	@echo "... src/r04_trajectory_bridge.i"
+	@echo "... src/r04_trajectory_bridge.s"
 .PHONY : help
 
 

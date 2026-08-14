@@ -3,6 +3,7 @@
 /home/syq/Desktop/YD/build/r01_test_package/CMakeFiles/r01_test_node.dir
 /home/syq/Desktop/YD/build/r01_test_package/CMakeFiles/r02_servo_bridge_node.dir
 /home/syq/Desktop/YD/build/r01_test_package/CMakeFiles/r03_servo_cmd_node.dir
+/home/syq/Desktop/YD/build/r01_test_package/CMakeFiles/r04_trajectory_bridge.dir
 /home/syq/Desktop/YD/build/r01_test_package/CMakeFiles/test.dir
 /home/syq/Desktop/YD/build/r01_test_package/CMakeFiles/edit_cache.dir
 /home/syq/Desktop/YD/build/r01_test_package/CMakeFiles/rebuild_cache.dir
