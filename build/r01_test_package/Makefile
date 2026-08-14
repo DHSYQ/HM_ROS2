@@ -249,6 +249,19 @@ r04_trajectory_bridge/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/r04_trajectory_bridge.dir/build.make CMakeFiles/r04_trajectory_bridge.dir/build
 .PHONY : r04_trajectory_bridge/fast
 
+#=============================================================================
+# Target rules for targets named r05_camera_bridge_node
+
+# Build rule for target.
+r05_camera_bridge_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 r05_camera_bridge_node
+.PHONY : r05_camera_bridge_node
+
+# fast build rule for target.
+r05_camera_bridge_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r05_camera_bridge_node.dir/build.make CMakeFiles/r05_camera_bridge_node.dir/build
+.PHONY : r05_camera_bridge_node/fast
+
 src/r01_test_node.o: src/r01_test_node.cpp.o
 .PHONY : src/r01_test_node.o
 
@@ -345,6 +358,30 @@ src/r04_trajectory_bridge.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/r04_trajectory_bridge.dir/build.make CMakeFiles/r04_trajectory_bridge.dir/src/r04_trajectory_bridge.cpp.s
 .PHONY : src/r04_trajectory_bridge.cpp.s
 
+src/r05_camera_bridge_node.o: src/r05_camera_bridge_node.cpp.o
+.PHONY : src/r05_camera_bridge_node.o
+
+# target to build an object file
+src/r05_camera_bridge_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r05_camera_bridge_node.dir/build.make CMakeFiles/r05_camera_bridge_node.dir/src/r05_camera_bridge_node.cpp.o
+.PHONY : src/r05_camera_bridge_node.cpp.o
+
+src/r05_camera_bridge_node.i: src/r05_camera_bridge_node.cpp.i
+.PHONY : src/r05_camera_bridge_node.i
+
+# target to preprocess a source file
+src/r05_camera_bridge_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r05_camera_bridge_node.dir/build.make CMakeFiles/r05_camera_bridge_node.dir/src/r05_camera_bridge_node.cpp.i
+.PHONY : src/r05_camera_bridge_node.cpp.i
+
+src/r05_camera_bridge_node.s: src/r05_camera_bridge_node.cpp.s
+.PHONY : src/r05_camera_bridge_node.s
+
+# target to generate assembly for a file
+src/r05_camera_bridge_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/r05_camera_bridge_node.dir/build.make CMakeFiles/r05_camera_bridge_node.dir/src/r05_camera_bridge_node.cpp.s
+.PHONY : src/r05_camera_bridge_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -364,6 +401,7 @@ help:
 	@echo "... r02_servo_bridge_node"
 	@echo "... r03_servo_cmd_node"
 	@echo "... r04_trajectory_bridge"
+	@echo "... r05_camera_bridge_node"
 	@echo "... src/r01_test_node.o"
 	@echo "... src/r01_test_node.i"
 	@echo "... src/r01_test_node.s"
@@ -376,6 +414,9 @@ help:
 	@echo "... src/r04_trajectory_bridge.o"
 	@echo "... src/r04_trajectory_bridge.i"
 	@echo "... src/r04_trajectory_bridge.s"
+	@echo "... src/r05_camera_bridge_node.o"
+	@echo "... src/r05_camera_bridge_node.i"
+	@echo "... src/r05_camera_bridge_node.s"
 .PHONY : help
 
 

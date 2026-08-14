@@ -13,6 +13,8 @@ find_package(std_msgs REQUIRED)
 find_package(nlohmann_json REQUIRED)
 find_package(control_msgs REQUIRED)
 find_package(rclcpp_action REQUIRED)
+find_package(OpenCV REQUIRED)
+find_package(cv_bridge REQUIRED)
 
 # r01_test_node (原有)
 add_executable(r01_test_node src/r01_test_node.cpp)
@@ -55,7 +57,19 @@ ament_target_dependencies(r04_trajectory_bridge
   control_msgs)
 target_compile_features(r04_trajectory_bridge PUBLIC cxx_std_17)
 
-install(TARGETS r01_test_node r02_servo_bridge_node r03_servo_cmd_node r04_trajectory_bridge
+# r05_camera_bridge_node (摄像头桥接节点)
+add_executable(r05_camera_bridge_node src/r05_camera_bridge_node.cpp)
+target_include_directories(r05_camera_bridge_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
+ament_target_dependencies(r05_camera_bridge_node
+  rclcpp
+  sensor_msgs
+  cv_bridge
+  OpenCV)
+target_compile_features(r05_camera_bridge_node PUBLIC cxx_std_17)
+
+install(TARGETS r01_test_node r02_servo_bridge_node r03_servo_cmd_node r04_trajectory_bridge r05_camera_bridge_node
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY launch/

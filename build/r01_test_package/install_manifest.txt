@@ -2,6 +2,7 @@
 /home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r02_servo_bridge_node
 /home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r03_servo_cmd_node
 /home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r04_trajectory_bridge
+/home/syq/Desktop/YD/install/r01_test_package/lib/r01_test_package/r05_camera_bridge_node
 /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/launch/warehouse_db.launch.py
 /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/launch/setup_assistant.launch.py
 /home/syq/Desktop/YD/install/r01_test_package/share/r01_test_package/launch/moveit_rviz.launch.py
